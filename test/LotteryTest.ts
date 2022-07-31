@@ -135,7 +135,6 @@ describe("Lottery", function () {
             await expect(Lottery.end()).to
                 .emit(Lottery, "Winner")/* .withNamedArgs({ _address: await accounts[1].getAddress(), tokenId: 1 }) */ // This does not seems to work with hardhat
                 .emit(Lottery, "Winner")/* .withNamedArgs({ _address: await accounts[0].getAddress(), tokenId: 2 }); */
-            expect()
         });
         it("should distribute NFTs", async function() {
             expect(await NFTContract.ownerOf(1)).to.equal(await accounts[1].getAddress());

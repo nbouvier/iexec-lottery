@@ -1,5 +1,4 @@
 node_modules
-.env
 coverage
 coverage.json
 typechain
@@ -11,3 +10,5 @@ cache
 artifacts
 
 .secret
+config/config-test.ts
+config/config-local.ts

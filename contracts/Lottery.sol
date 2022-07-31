@@ -58,13 +58,11 @@ contract Lottery is ERC721Holder, Ownable {
         require(players.length > 0, "Lottery should have at least one participant.");
         state = STATE.CLOSED;
 
-        _winners = new address[](nftBatch.length);
-        _tokenIds = nftBatch;
         (uint256 rng, uint256 rshift) = getRnshift();
         for(uint256 i=0; i<nftBatch.length; i++) {
-            _winners[i] = players[rng % players.length];
-            erc721Contract.safeTransferFrom(address(this), _winners[i], nftBatch[i]);
-            emit Winner(_winners[i], nftBatch[i], block.timestamp);
+            address winner = players[rng % players.length];
+            erc721Contract.safeTransferFrom(address(this), winner, nftBatch[i]);
+            emit Winner(winner, nftBatch[i], block.timestamp);
             rng = rng >> rshift;
         }
 

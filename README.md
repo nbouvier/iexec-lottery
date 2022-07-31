@@ -6,7 +6,8 @@
 Install all the dependencies  
 <code>npm i</code>  
     
-Create a .secret file to store the private key of the main account if not using local network (not a best practice, but this was used for test purpose)  
+Create a .secret file to store the private key of the main account if not using local network fill in a random 32 bytes string if you do not plan to use viviani network (not a best practice, but this was used for test purpose)  
+Random 32 bytes string : e00fb70c5bdee6328960fe2911a9c5b62862135a371661b6a88e40aa6dd64ed0  
 <code>touch .secret</code>  
     
 Duplicate config/config-example.ts to config/config-local.ts and config/config-test.ts if necessary  

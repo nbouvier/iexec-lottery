@@ -129,7 +129,7 @@ describe("Lottery", function () {
             await expect(Lottery.connect(accounts[1]).end()).to.be.reverted;
         });
         it("should emit Winner event", async function() {
-            // oracle = 1 => NFT #1 & #2 to accounts[0]
+            // oracle = 1 => NFT #1 to accounts[0] & NFT #2 to accounts[1]
             // await OracleTest.setInt(1);
             // oracle = 3 => NFT #1 to accounts[1] & NFT #2 to accounts[0]
             await expect(Lottery.end()).to

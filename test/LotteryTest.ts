@@ -129,15 +129,15 @@ describe("Lottery", function () {
             await expect(Lottery.connect(accounts[1]).end()).to.be.reverted;
         });
         it("should emit Winner event", async function() {
-            // oracle = 1 => NFT #1 to accounts[0] & NFT #2 to accounts[1]
+            // oracle = 1 => NFT #1 to accounts[0] & NFT #2 to accounts[0]
             // await OracleTest.setInt(1);
-            // oracle = 3 => NFT #1 to accounts[1] & NFT #2 to accounts[0]
+            // oracle = 3 => NFT #1 to accounts[1] & NFT #2 to accounts[1]
             await expect(Lottery.end()).to
                 .emit(Lottery, "Winner")/* .withNamedArgs({ _address: await accounts[1].getAddress(), tokenId: 1 }) */ // This does not seems to work with hardhat
                 .emit(Lottery, "Winner")/* .withNamedArgs({ _address: await accounts[0].getAddress(), tokenId: 2 }); */
         });
         it("should distribute NFTs", async function() {
-            expect(await NFTContract.ownerOf(1)).to.equal(await accounts[1].getAddress());
+            expect(await NFTContract.ownerOf(1)).to.equal(await accounts[0].getAddress());
             expect(await NFTContract.ownerOf(2)).to.equal(await accounts[0].getAddress());
         });
         it("should change lottery's state", async function() {

@@ -58,26 +58,22 @@ contract Lottery is ERC721Holder, Ownable {
         require(players.length > 0, "Lottery should have at least one participant.");
         state = STATE.CLOSED;
 
-        uint256 rng = getRng();
+        oracleContract.getOracleData();
+        (int256 seed, ) = oracleContract.get();
+        uint256 rng = getRng(uint256(seed));
         for(uint256 i=0; i<nftBatch.length; i++) {
             address winner = players[rng % players.length];
             erc721Contract.safeTransferFrom(address(this), winner, nftBatch[i]);
             emit Winner(winner, nftBatch[i], block.timestamp);
-            rng = getRshiftedRng(rng);
+            rng = getRng(rng);
         }
 
         nftBatch = new uint256[](0);
         players = new address[](0);
     }
 
-    function getRng() private returns (uint256 rng_) {
-        oracleContract.getOracleData();
-        (int256 seed, ) = oracleContract.get();
-        return uint256(keccak256(abi.encode(seed)));
-    }
-
-    function getRshiftedRng(uint256 _rng) public pure returns (uint256 rng_) {
-        return uint256(keccak256(abi.encode(_rng >> 128)));
+    function getRng(uint256 _seed) private returns (uint256 rng_) {
+        return uint256(keccak256(abi.encode(_seed)));
     }
 
     function setOracleContract(address _oracleAddress) external onlyOwner {

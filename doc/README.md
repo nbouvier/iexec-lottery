@@ -27,4 +27,4 @@ generation return numbers from 0 to 100 which might not be enough if the player 
 After the hashing is done, a modulo operation is performed between the 32 bytes hash and the number of players to get the winner of the first NFT.  
 This cycle keep going until all the NFTs are distributed.  
 
-> Note that for each new cycle, the random number is right shifted by 128 and rehashed to prevent winner correlation without querying a new random number for each NFT to distribute.
+> Note that for each new cycle, the random number is rehashed to prevent winner correlation without querying a new random number for each NFT to distribute.

@@ -2,7 +2,7 @@
 
 ## Powered by Hardhat
 
-## Initialize
+## 1. Initialize
 Install all the dependencies  
 <code>npm i</code>  
     
@@ -21,7 +21,7 @@ Compile and check tests
 See available tasks  
 <code>npx hardhat</code>  
 
-## Lottery usage on local network
+## 2. Lottery usage on local network
 
 Deploy all the contracts  
 10 NFTs are pre-minted to first account and Lottery contract is already approved  
@@ -46,3 +46,8 @@ Note that for test purpose on local network, OracleTest is used insteed of Gener
 <code>npx hardhat oracle-get-value --network localhost</code>  
 <code>npx hardhat oracle-storage-fetch-value --network localhost</code>  
 <code>npx hardhat oracle-storage-get-value --network localhost</code>  
+
+## 3. Documentation
+
+See the documentation in the [doc folder](https://github.com/nbouvier/iexec-lottery/tree/main/doc)
+

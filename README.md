@@ -12,6 +12,7 @@ Random 32 bytes string : e00fb70c5bdee6328960fe2911a9c5b62862135a371661b6a88e40a
     
 Duplicate config/config-example.ts to config/config-local.ts and config/config-test.ts if necessary  
 Don't forget to fill in OracleTest (Oracle if viviani testnet) and OracleId properties with both GenericOracle contract address and your oracleId  
+Also, don't forget to read the README.md file in the config foler  
 <code>cp ./config/config-example.ts ./config/config-local.ts</code>  
 <code>cp ./config/config-example.ts ./config/config-test.ts</code>  
 
